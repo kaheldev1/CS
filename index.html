@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Course Schedule</title>
+    <link rel="stylesheet" href="schd.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="schedule-app">
+        <header class="schedule-header">
+            <h1 class="main-title">
+                MBC - Evening Class
+            </h1>
+            <div id="status-card" class="status-card">
+                <div id="current-day" class="current-day"></div>
+                <div id="current-time-display" class="current-time"></div>
+            </div>
+        </header>
+        
+        <main class="schedule-container">
+            <table id="schedule-table">
+                <thead>
+                    <tr>
+                        <th class="col-day">Day</th>
+                        <th class="col-time">Time Slot</th>
+                        <th class="col-course">Subject</th>
+                        <th class="col-prof">Instructor</th>
+                        <th class="col-link">Virtual Link</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-body">
+                    <tr id="se-row" class="schedule-item mwf">
+                        <td class="col-day">MWF</td>
+                        <td class="col-time time-6pm">6:00 PM – 7:00 PM</td>
+                        <td class="col-course">SOFTWARE ENGINEERING 2</td>
+                        <td class="col-prof" rowspan="2">Prof. Catama</td>
+                        <td class="col-link" rowspan="2">
+                            <a href="https://meet.google.com/chu-skvw-zrv" target="_blank" class="meet-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+                                Join Meeting
+                            </a>
+                        </td>
+                    </tr>
+                    <tr id="gvc-row" class="schedule-item mwf">
+                        <td class="col-day">MWF</td>
+                        <td class="col-time time-7pm">7:00 PM – 8:00 PM</td>
+                        <td class="col-course">GRAPHICS & VISUAL COMPUTING</td>
+                        </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <footer class="schedule-footer">
+            <p class="note">Maximize your learning potential.</p>
+        </footer>
+    </div>
+
+    <script src="schd.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+/* --- Global Styles & Typography --- */
+:root {
+    /* Existing Colors */
+    --color-primary: #1e3a8a; /* Deep Navy Blue */
+    --color-secondary: #3b82f6; /* Bright Blue Accent */
+    --color-text: #374151; /* Dark Gray for readability */
+    --color-background: #f1f5f9; /* Light Gray Background */
+    --color-white: #ffffff;
+    --color-success: #10b981; /* Green for current class */
+    --color-warning: #f59e0b; /* Yellow for time */
+    
+    /* New: For Subtle Depth and Shadows */
+    --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    
+    /* New: Typography refinement */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* --- Layout Container --- */
+.schedule-app {
+    background: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 1000px;
+    padding: 30px;
+}
+
+/* --- Header & Status Card --- */
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.8em;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.status-card {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: right;
+    font-size: 0.9em;
+    box-shadow: var(--shadow-medium);
+}
+
+.current-day {
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.current-time {
+    font-weight: 500;
+    opacity: 0.9;
+    font-family: 'Consolas', 'Courier New', monospace;
+}
+
+
+/* --- Table Styles --- */
+#schedule-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin-bottom: 20px;
+}
+
+#schedule-table thead th {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px 15px;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 0.9em;
+    border: none;
+    text-transform: uppercase;
+}
+
+/* Rounded corners for header */
+#schedule-table thead tr th:first-child { border-top-left-radius: 8px; }
+#schedule-table thead tr th:last-child { border-top-right-radius: 8px; }
+
+/* Table Body Rows */
+.schedule-item {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-item td {
+    padding: 18px 15px;
+    border: none;
+    background-color: var(--color-white);
+}
+
+/* Rounded corners on the cells of the row */
+.schedule-item td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+.schedule-item td:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+
+/* Alternating row color is now handled by the background for a cleaner look */
+#schedule-table tbody tr:nth-child(odd) td {
+    background-color: #fcfcfc;
+}
+
+#schedule-table tbody tr:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+#schedule-table tbody tr:hover td {
+    background-color: #e0f2fe;
+}
+
+
+/* Specific Column Styling */
+.col-day {
+    font-weight: 700;
+    width: 8%; /* Kept the same */
+    color: var(--color-secondary);
+    padding-left: 20px;
+}
+
+.col-time {
+    font-weight: 700;
+    width: 20%; /* INCREASED from 15% to 20% to give more room for the time string */
+    min-width: 140px; /* Added a minimum width guarantee */
+    color: var(--color-warning);
+}
+
+.col-course {
+    font-weight: 700;
+    width: auto; /* Allow this column to take up remaining space */
+    color: var(--color-primary);
+}
+
+.col-prof {
+    font-style: italic;
+    width: 15%; /* Kept the same */
+}
+
+
+/* --- Virtual Link Button --- */
+.meet-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 10px 14px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-light);
+}
+
+.meet-link:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.meet-link svg {
+    margin-right: 8px;
+    fill: var(--color-white);
+}
+
+/* --- Dynamic Highlighting (JS Controlled) --- */
+
+/* Class when it is currently running */
+.current-class {
+    background-color: #d1fae5 !important;
+    border: 1px solid var(--color-success);
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.current-class td {
+    background-color: #d1fae5 !important;
+}
+
+.current-class .col-course {
+    color: var(--color-success);
+}
+
+/* --- Footer --- */
+.schedule-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #e5e7eb;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #9ca3af;
+}
