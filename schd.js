@@ -1,9 +1,17 @@
-const SCHEDULE = [
+const SCHEDULE_MWF = [
     { id: 'se-row', startMins: 18 * 60, endMins: 19 * 60, label: 'Software Engineering 2' },
-    { id: 'gvc-row', startMins: 19 * 60, endMins: 20 * 60, label: 'Graphics & Visual Computing' }
+    { id: 'gvc-row', startMins: 19 * 60, endMins: 20 * 60, label: 'Graphics & Visual Computing' },
+    { id: 'hci-row', startMins: 20 * 60, endMins: 21 * 60, label: 'Human Computer Interaction' }
 ];
 
-const CLASS_DAYS = [1, 3, 5];
+
+const SCHEDULE_TTH = [
+    { id: 'cs-row', startMins: 18 * 60, endMins: 19 * 60, label: 'Computational Science' },
+    { id: 'ca-row', startMins: 19 * 60, endMins: 20 * 60, label: 'Computer Architecture' }
+];
+
+const MWF_DAYS = [1, 3, 5];
+const TTH_DAYS = [2, 4];
 
 const MANILA_TZ = 'Asia/Manila';
 
@@ -27,7 +35,7 @@ function getManilaTimeData() {
     const month = parts.find(p => p.type === 'month').value;
     const day = parts.find(p => p.type === 'day').value;
     
-    const nowManila = new Date(`${year}/${month}/${day} ${new Date().toLocaleTimeString('en-US', { timeZone: MANILA_TZ })}`);
+    const nowManila = new Date(new Date().toLocaleString('en-US', { timeZone: MANILA_TZ }));
     
     data.dow = nowManila.getDay();
     data.dayName = parts.find(p => p.type === 'weekday').value;
@@ -36,7 +44,7 @@ function getManilaTimeData() {
     data.totalMins = data.hours * 60 + data.mins;
     
     data.timeString = nowManila.toLocaleTimeString('en-US', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true, timeZone: MANILA_TZ
     });
     
     return data;
@@ -55,8 +63,20 @@ function updateScheduleStatus() {
     const data = getManilaTimeData();
     const dow = data.dow;
     const totalMins = data.totalMins;
-    const isClassDay = CLASS_DAYS.includes(dow);
     const subEl = document.getElementById('current-sub');
+
+    let activeSchedule = null;
+    let dayGroupName = '';
+    
+    if (MWF_DAYS.includes(dow)) {
+        activeSchedule = SCHEDULE_MWF;
+        dayGroupName = 'M-W-F';
+    } else if (TTH_DAYS.includes(dow)) {
+        activeSchedule = SCHEDULE_TTH;
+        dayGroupName = 'T-TH';
+    }
+    
+    const isClassDay = activeSchedule !== null;
 
     document.querySelectorAll('.schedule-item').forEach(r => {
         r.classList.remove('current-class');
@@ -64,11 +84,13 @@ function updateScheduleStatus() {
     });
     const timeDisplayEl = document.getElementById('current-time-display');
     timeDisplayEl.classList.remove('glow');
-    subEl.textContent = isClassDay ? 'Class day — check the active slot below.' : 'No classes scheduled today.';
+    
+    subEl.textContent = isClassDay ? `${dayGroupName} Class day — check the active slot below.` : 'No classes scheduled today.';
 
     if (!isClassDay) return;
 
-    for (const entry of SCHEDULE) {
+    let classFound = false;
+    for (const entry of activeSchedule) {
         if (totalMins >= entry.startMins && totalMins < entry.endMins) {
             const row = document.getElementById(entry.id);
             if (row) {
@@ -78,15 +100,24 @@ function updateScheduleStatus() {
                 timeDisplayEl.classList.add('glow');
                 
                 subEl.textContent = `Now running — ${entry.label}`;
-                
+                classFound = true;
                 break; 
             }
         }
     }
+    
+    if (isClassDay && !classFound) {
+        const lastClass = activeSchedule[activeSchedule.length - 1];
+        if (totalMins >= lastClass.endMins) {
+             subEl.textContent = `Classes concluded for ${dayGroupName} today.`;
+        }
+    }
 }
+
 
 updateTimeDisplay();
 updateScheduleStatus();
+
 
 setInterval(updateTimeDisplay, 1000);
 setInterval(updateScheduleStatus, 15000);
