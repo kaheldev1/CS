@@ -221,8 +221,8 @@ body {
 }
 
 .note {
-    font-size: 0.95em; 
-    color: #a0aec0; 
+    font-size: 0.95em;
+    color: #3c4043; 
     display: block; 
 }
 
@@ -255,3 +255,4 @@ body {
     from { box-shadow: 0 0 5px var(--color-warning), 0 0 10px var(--color-warning); } 
     to { box-shadow: 0 0 10px var(--color-warning), 0 0 20px var(--color-warning); } 
 }
+
