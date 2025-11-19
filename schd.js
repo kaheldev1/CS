@@ -4,14 +4,13 @@ const SCHEDULE_MWF = [
     { id: 'hci-row', startMins: 20 * 60, endMins: 21 * 60, label: 'Human Computer Interaction' }
 ];
 
-
 const SCHEDULE_TTH = [
     { id: 'cs-row', startMins: 18 * 60, endMins: 19 * 60, label: 'Computational Science' },
     { id: 'ca-row', startMins: 19 * 60, endMins: 20 * 60, label: 'Computer Architecture' }
 ];
 
-const MWF_DAYS = [1, 3, 5];
-const TTH_DAYS = [2, 4];
+const MWF_DAYS = [1, 3, 5]; 
+const TTH_DAYS = [2, 4]; 
 
 const MANILA_TZ = 'Asia/Manila';
 
@@ -37,7 +36,7 @@ function getManilaTimeData() {
     
     const nowManila = new Date(new Date().toLocaleString('en-US', { timeZone: MANILA_TZ }));
     
-    data.dow = nowManila.getDay();
+    data.dow = nowManila.getDay(); 
     data.dayName = parts.find(p => p.type === 'weekday').value;
     data.hours = nowManila.getHours();
     data.mins = nowManila.getMinutes();
@@ -114,10 +113,8 @@ function updateScheduleStatus() {
     }
 }
 
-
 updateTimeDisplay();
 updateScheduleStatus();
-
 
 setInterval(updateTimeDisplay, 1000);
 setInterval(updateScheduleStatus, 15000);
