@@ -4,8 +4,8 @@
     --color-text: #374151;
     --color-background: #f1f5f9;
     --color-white: #ffffff;
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
+    --color-success: #f59e0b;
+    --color-warning: #10b981;
 
     --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
     --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
@@ -168,6 +168,22 @@ body {
 .meet-link svg {
     margin-right: 8px;
     fill: var(--color-white);
+}
+
+.meet-link.google-classroom {
+    background-color: #fbbc05;
+    color: #3c4043;
+    box-shadow: 0 4px 6px -1px rgba(251, 188, 5, 0.4), 0 2px 4px -2px rgba(251, 188, 5, 0.2);
+}
+
+.meet-link.google-classroom:hover {
+    background-color: #e0ac00;
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(251, 188, 5, 0.4);
+}
+
+.meet-link.google-classroom svg {
+    fill: #3c4043;
 }
 
 .current-class {
