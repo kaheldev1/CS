@@ -6,10 +6,8 @@
     --color-white: #ffffff;
     --color-success: #10b981; 
     --color-warning: #f59e0b; 
-
     --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
     --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Roboto', sans-serif;
 }
@@ -19,7 +17,7 @@ body {
     background-color: var(--color-background);
     color: var(--color-text);
     margin: 0;
-    padding: 20px; 
+    padding: 10px; 
     display: flex;
     justify-content: center;
     min-height: 100vh;
@@ -30,25 +28,25 @@ body {
     border-radius: 14px; 
     box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 900px; /* Binalik sa 900px para masigurong may space ang columns */
-    padding: 30px; 
+    max-width: 900px;
+    padding: 15px; 
 }
 
 .schedule-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px; 
-    padding-bottom: 15px; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-bottom: 20px; 
+    padding-bottom: 10px; 
     border-bottom: 2px solid #e5e7eb; 
 }
 
 .main-title {
     font-family: var(--font-heading);
     color: var(--color-primary);
-    font-size: 1.8em; 
+    font-size: 1.5em; 
     font-weight: 700;
-    margin: 0;
+    margin: 0 0 10px 0; 
     display: flex;
     align-items: center;
 }
@@ -58,9 +56,10 @@ body {
     color: var(--color-white);
     padding: 10px 15px; 
     border-radius: 8px; 
-    text-align: right;
-    font-size: 0.95em; 
+    text-align: left;
+    font-size: 0.9em; 
     box-shadow: var(--shadow-medium);
+    width: 100%; 
 }
 
 .current-day {
@@ -74,101 +73,119 @@ body {
     font-family: 'Consolas', 'Courier New', monospace;
 }
 
+.current-sub-status {
+    font-size: 0.85em; 
+    font-weight: 500;
+    margin-top: 5px; 
+    padding-top: 5px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.15); 
+    opacity: 0.9;
+}
+
 #schedule-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 8px; 
+    border-collapse: collapse; 
+    border-spacing: 0;
     margin-bottom: 20px; 
 }
 
-#schedule-table thead th {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: 15px; 
-    text-align: left;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 0.95em; 
-    border: none;
-    text-transform: uppercase;
+#schedule-table thead {
+    display: none;
 }
-
-#schedule-table thead tr th:first-child { border-top-left-radius: 8px; } 
-#schedule-table thead tr th:last-child { border-top-right-radius: 8px; } 
 
 .schedule-item {
-    transition: all 0.3s ease;
-    border: none;
+    display: block; 
+    margin-bottom: 15px; 
     border-radius: 8px; 
-    box-shadow: var(--shadow-light);
-}
-
-.schedule-item:last-child {
-    border-bottom: none;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+    overflow: hidden; 
+    border: none !important;
 }
 
 .schedule-item td {
-    padding: 18px 15px; 
+    display: block; 
+    padding: 10px 15px; 
+    text-align: left;
     border: none;
-    background-color: var(--color-white);
-    font-size: 1em; /* Binalik sa 1em */
+    border-bottom: 1px dashed #e5e7eb; 
+    background-color: var(--color-white) !important; 
+    font-size: 1em;
+    border-radius: 0 !important; 
 }
 
-.schedule-item td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
-.schedule-item td:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
-
-#schedule-table tbody tr:nth-child(odd) td {
-    background-color: #fcfcfc;
+.schedule-item td:last-child {
+    border-bottom: none; 
+    padding-bottom: 15px; 
 }
 
-/* Updated Column Widths & White-space for Straight Text */
+.schedule-item td::before {
+    content: attr(data-label) ": "; 
+    font-weight: 500;
+    color: #4a5568; 
+    display: inline-block;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    width: 90px; 
+}
+
+.col-day, .col-time, .col-course, .col-prof, .col-link {
+    width: auto; 
+    min-width: 0; 
+    white-space: normal; 
+}
+
 .col-day {
+    background-color: #eef2ff !important; 
+    color: var(--color-primary);
+    font-size: 1.1em;
+    padding-top: 15px;
+}
+.col-day::before {
+    content: "Day:";
+    color: var(--color-primary);
     font-weight: 700;
-    width: 10%; 
-    min-width: 60px; /* Dagdag min-width */
-    color: var(--color-secondary);
-    padding-left: 20px; 
-    white-space: nowrap; /* Ito ang nagti-tiyak na straight ang M-W-F */
 }
 
 .col-time {
-    font-weight: 700;
-    width: 15%; 
-    min-width: 150px; /* Dagdag min-width para sa buong time */
     color: var(--color-warning);
-    font-size: 1em; 
-    white-space: nowrap; /* Ito ang nagti-tiyak na straight ang Time Slot */
+    font-weight: 700;
 }
 
 .col-course {
-    font-weight: 700;
-    width: 35%; 
     color: var(--color-primary);
-    font-size: 1em; 
-    white-space: normal;
+    font-weight: 700;
 }
 
 .col-prof {
-    font-style: italic;
+    font-style: normal; 
     color: #3c4043;
-    width: 15%; 
-    font-size: 1em; 
-    white-space: normal;
 }
-/* End of Column Widths Adjustment */
+
+.col-link {
+    text-align: center; 
+    padding: 15px !important;
+    font-size: 0; 
+}
+
+.col-link::before {
+    content: none;
+}
 
 .meet-link {
-    display: inline-flex;
+    display: inline-flex; 
     align-items: center;
     background-color: var(--color-secondary);
     color: var(--color-white);
-    padding: 8px 12px; /* Bahagyang binawasan ang padding */
+    padding: 10px 15px; 
     border-radius: 20px; 
     text-decoration: none;
-    font-size: 0.85em; /* Bahagyang binawasan ang font */
+    font-size: 0.9em; 
     font-weight: 500;
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: var(--shadow-light);
+    width: auto; 
+    margin: 0; 
 }
 
 .meet-link:hover {
@@ -201,13 +218,12 @@ body {
 }
 
 .current-class {
-    background-color: #d1fae5 !important;
-    border: 1px solid var(--color-success);
+    border: 2px solid var(--color-success);
     font-weight: bold;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3); 
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5); 
 }
 
-.current-class td {
+.current-class .col-day {
     background-color: #d1fae5 !important;
 }
 
@@ -218,7 +234,7 @@ body {
 .schedule-footer {
     text-align: center;
     color: #3c4043; 
-    margin-top: 20px; 
+    margin-top: 10px; 
     padding-top: 15px; 
     border-top: 1px dashed #4a5568; 
 }
@@ -241,20 +257,150 @@ body {
     text-decoration: underline;
 }
 
-.current-sub-status {
-    font-size: 0.85em; 
-    font-weight: 500;
-    margin-top: 5px; 
-    padding-top: 5px; 
-    border-top: 1px solid rgba(255, 255, 255, 0.15); 
-    opacity: 0.9;
-}
+@media (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
 
-.glow {
-    animation: glow-pulse 1.5s infinite alternate;
-}
+    .schedule-app {
+        padding: 30px; 
+    }
 
-@keyframes glow-pulse {
-    from { box-shadow: 0 0 5px var(--color-warning), 0 0 10px var(--color-warning); } 
-    to { box-shadow: 0 0 10px var(--color-warning), 0 0 20px var(--color-warning); } 
+    .schedule-header {
+        flex-direction: row; 
+        align-items: center;
+        margin-bottom: 30px; 
+        padding-bottom: 15px; 
+        justify-content: space-between; 
+    }
+
+    .main-title {
+        font-size: 1.8em; 
+        margin-bottom: 0;
+    }
+
+    .status-card {
+        width: auto;
+        text-align: right;
+        font-size: 0.95em;
+    }
+
+    #schedule-table {
+        border-collapse: separate;
+        border-spacing: 0 8px; 
+    }
+
+    #schedule-table thead {
+        display: table-header-group; 
+    }
+
+    #schedule-table thead th {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: 15px; 
+        text-align: left;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        font-size: 0.95em; 
+        border: none;
+        text-transform: uppercase;
+    }
+
+    #schedule-table thead tr th:first-child { border-top-left-radius: 8px; } 
+    #schedule-table thead tr th:last-child { border-top-right-radius: 8px; } 
+
+    .schedule-item {
+        display: table-row; 
+        margin-bottom: 0;
+        box-shadow: var(--shadow-light);
+        border: none;
+    }
+
+    .schedule-item td {
+        display: table-cell; 
+        padding: 18px 15px; 
+        border-bottom: none;
+        background-color: var(--color-white);
+        font-size: 1em;
+    }
+
+    .schedule-item td::before {
+        content: none; 
+    }
+
+    .schedule-item td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+    .schedule-item td:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+    #schedule-table tbody tr:nth-child(odd) td {
+        background-color: #fcfcfc;
+    }
+
+    .col-day {
+        font-weight: 700;
+        width: 8%; 
+        min-width: 60px;
+        color: var(--color-secondary);
+        padding-left: 20px; 
+        white-space: nowrap;
+        background-color: var(--color-white) !important;
+        font-size: 1em;
+    }
+
+    .col-time {
+        font-weight: 700;
+        width: 14%; 
+        min-width: 140px; 
+        color: var(--color-warning);
+        font-size: 1em; 
+        white-space: nowrap;
+    }
+
+    .col-course {
+        font-weight: 700;
+        width: 38%; 
+        color: var(--color-primary);
+        font-size: 1em; 
+        white-space: normal;
+    }
+
+    .col-prof {
+        font-style: italic;
+        color: #3c4043;
+        width: 18%; 
+        font-size: 1em; 
+        white-space: normal;
+    }
+
+    .col-link {
+        text-align: left;
+        padding: 18px 15px !important;
+        width: auto; 
+    }
+
+    .meet-link {
+        display: inline-flex;
+        width: auto;
+        margin: 0;
+        font-size: 0.85em;
+        padding: 8px 12px;
+    }
+
+    .current-class {
+        background-color: #d1fae5 !important;
+        border: 1px solid var(--color-success);
+        font-weight: bold;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.3); 
+    }
+
+    .current-class td {
+        background-color: #d1fae5 !important;
+    }
+
+    .current-class .col-course {
+        color: var(--color-success);
+    }
+
+    .schedule-footer {
+        margin-top: 20px; 
+    }
 }
