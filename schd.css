@@ -30,7 +30,7 @@ body {
     border-radius: 14px; 
     box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 900px;
+    max-width: 900px; /* Binalik sa 900px para masigurong may space ang columns */
     padding: 30px; 
 }
 
@@ -111,7 +111,7 @@ body {
     padding: 18px 15px; 
     border: none;
     background-color: var(--color-white);
-    font-size: 1em;
+    font-size: 1em; /* Binalik sa 1em */
 }
 
 .schedule-item td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
@@ -121,22 +121,23 @@ body {
     background-color: #fcfcfc;
 }
 
+/* Updated Column Widths & White-space for Straight Text */
 .col-day {
     font-weight: 700;
     width: 10%; 
-    min-width: 60px;
+    min-width: 60px; /* Dagdag min-width */
     color: var(--color-secondary);
     padding-left: 20px; 
-    white-space: nowrap;
+    white-space: nowrap; /* Ito ang nagti-tiyak na straight ang M-W-F */
 }
 
 .col-time {
     font-weight: 700;
     width: 15%; 
-    min-width: 150px;
+    min-width: 150px; /* Dagdag min-width para sa buong time */
     color: var(--color-warning);
     font-size: 1em; 
-    white-space: nowrap;
+    white-space: nowrap; /* Ito ang nagti-tiyak na straight ang Time Slot */
 }
 
 .col-course {
@@ -154,16 +155,17 @@ body {
     font-size: 1em; 
     white-space: normal;
 }
+/* End of Column Widths Adjustment */
 
 .meet-link {
     display: inline-flex;
     align-items: center;
     background-color: var(--color-secondary);
     color: var(--color-white);
-    padding: 8px 12px;
+    padding: 8px 12px; /* Bahagyang binawasan ang padding */
     border-radius: 20px; 
     text-decoration: none;
-    font-size: 0.85em;
+    font-size: 0.85em; /* Bahagyang binawasan ang font */
     font-weight: 500;
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: var(--shadow-light);
@@ -215,13 +217,14 @@ body {
 
 .schedule-footer {
     text-align: center;
+    color: #3c4043; 
     margin-top: 20px; 
     padding-top: 15px; 
     border-top: 1px dashed #4a5568; 
 }
 
 .note {
-    font-size: 0.95em;
+    font-size: 0.95em; 
     color: #3c4043; 
     display: block; 
 }
@@ -255,4 +258,3 @@ body {
     from { box-shadow: 0 0 5px var(--color-warning), 0 0 10px var(--color-warning); } 
     to { box-shadow: 0 0 10px var(--color-warning), 0 0 20px var(--color-warning); } 
 }
-
