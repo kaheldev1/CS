@@ -1,3 +1,25 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const tutorialBtn = document.getElementById('tutorial-btn');
+    const modalOverlay = document.getElementById('tutorial-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    if (tutorialBtn && modalOverlay && closeModalBtn) {
+        tutorialBtn.addEventListener('click', () => {
+            modalOverlay.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.style.display = 'none';
+        });
+
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+    }
+});
+
 const SCHEDULE_MWF = [
     { id: 'se-row', startMins: 18 * 60, endMins: 19 * 60, label: 'Software Engineering 2' },
     { id: 'gvc-row', startMins: 19 * 60, endMins: 20 * 60, label: 'Graphics & Visual Computing' },
