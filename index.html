@@ -14,9 +14,18 @@
 
         <header class="schedule-header">
             <h1 class="main-title">MBC - Evening Class</h1>
+
             <button id="tutorial-btn" class="tutorial-button">
-                <svg class="icon svg-info" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg> How to Join
+                
+                <svg class="icon svg-info" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 0 24 24" width="22" fill="#3c4043">
+                    <path d="M12 2C6.49 2 2 6.48 2 12s4.49 
+                    10 10 10 10-4.48 10-10S17.51 2 12 2zm-.25 
+                    5.25h1.5v1.5h-1.5v-1.5zm1.75 
+                    11h-2v-7h2v7z"/>
+                </svg>
+                How to Join
             </button>
+
             <div id="status-card" class="status-card">
                 <div id="current-day" class="current-day"></div>
                 <div id="current-time-display" class="current-time"></div>
@@ -28,16 +37,31 @@
             <table id="schedule-table">
                 <thead>
                     <tr>
-                        <th><span class="icon"></span> Day</th>
-                        <th><span class="icon"></span> Time</th>
-                        <th><span class="icon"></span> Subject</th>
-                        <th><span class="icon"></span> Instructor</th>
-                        <th><span class="icon"></span> Link</th>
+                        <th><span class="icon-header">
+                    
+                        </span> Day</th>
+
+                        <th><span class="icon-header">
+                            
+                        </span> Time</th>
+
+                        <th><span class="icon-header">
+                            
+                        </span> Subject</th>
+
+                        <th><span class="icon-header">
+                            
+                        </span> Instructor</th>
+
+                        <th><span class="icon-header">
+                            
+                        </span> Link</th>
                     </tr>
                 </thead>
 
                 <tbody id="schedule-body">
 
+                    
                     <tr class="schedule-item mwf" id="se-row">
                         <td class="col-day" data-label="Day">M-W-F</td>
                         <td class="col-time" data-label="Time">6:00 PM – 7:00 PM</td>
@@ -45,11 +69,19 @@
                         <td class="col-prof" data-label="Instructor">Prof. Catama</td>
                         <td class="col-link" data-label="Link">
                             <a href="https://meet.google.com/chu-skvw-zrv" target="_blank" class="meet-link">
-                                <svg class="icon svg-meet" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM7 10h4v4H7zm7 0h3l-4 4-3-4z"/></svg> Join Meeting
+                                
+                                <svg height="20" width="20" viewBox="0 0 24 24" fill="#fff">
+                                    <path d="M17 10.5V7c0-1.1-.9-2-2-2H5C3.9 
+                                    5 3 5.9 3 7v10c0 1.1.9 2 2 
+                                    2h10c1.1 0 2-.9 2-2v-3.5l4 
+                                    4v-11l-4 4z"/>
+                                </svg>
+                                Join Meeting
                             </a>
                         </td>
                     </tr>
 
+                    
                     <tr class="schedule-item mwf" id="gvc-row">
                         <td class="col-day" data-label="Day">M-W-F</td>
                         <td class="col-time" data-label="Time">7:00 PM – 8:00 PM</td>
@@ -57,11 +89,18 @@
                         <td class="col-prof" data-label="Instructor">Prof. Catama</td>
                         <td class="col-link" data-label="Link">
                             <a href="https://meet.google.com/chu-skvw-zrv" target="_blank" class="meet-link">
-                                <svg class="icon svg-meet" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM7 10h4v4H7zm7 0h3l-4 4-3-4z"/></svg> Join Meeting
+                                <svg height="20" width="20" viewBox="0 0 24 24" fill="#fff">
+                                    <path d="M17 10.5V7c0-1.1-.9-2-2-2H5C3.9 
+                                    5 3 5.9 3 7v10c0 1.1.9 2 2 
+                                    2h10c1.1 0 2-.9 2-2v-3.5l4 
+                                    4v-11l-4 4z"/>
+                                </svg>
+                                Join Meeting
                             </a>
                         </td>
                     </tr>
 
+                    
                     <tr class="schedule-item mwf" id="hci-row">
                         <td class="col-day" data-label="Day">M-W-F</td>
                         <td class="col-time" data-label="Time">8:00 PM – 9:00 PM</td>
@@ -69,11 +108,18 @@
                         <td class="col-prof" data-label="Instructor">Prof. Pastera</td>
                         <td class="col-link" data-label="Link">
                             <a href="https://meet.google.com/vzy-sjuv-xpd" target="_blank" class="meet-link">
-                                <svg class="icon svg-meet" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM7 10h4v4H7zm7 0h3l-4 4-3-4z"/></svg> Join Meeting
+                                <svg height="20" width="20" viewBox="0 0 24 24" fill="#fff">
+                                    <path d="M17 10.5V7c0-1.1-.9-2-2-2H5C3.9 
+                                    5 3 5.9 3 7v10c0 1.1.9 2 2 
+                                    2h10c1.1 0 2-.9 2-2v-3.5l4 
+                                    4v-11l-4 4z"/>
+                                </svg>
+                                Join Meeting
                             </a>
                         </td>
                     </tr>
 
+                    
                     <tr class="schedule-item tth" id="ias-row">
                         <td class="col-day" data-label="Day">T-TH</td>
                         <td class="col-time" data-label="Time">6:00 PM – 7:00 PM</td>
@@ -81,31 +127,54 @@
                         <td class="col-prof" data-label="Instructor">Prof. Catama</td>
                         <td class="col-link" data-label="Link">
                             <a href="https://meet.google.com/chu-skvw-zrv" target="_blank" class="meet-link">
-                                <svg class="icon svg-meet" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM7 10h4v4H7zm7 0h3l-4 4-3-4z"/></svg> Join Meeting
+                                <svg height="20" width="20" viewBox="0 0 24 24" fill="#fff">
+                                    <path d="M17 10.5V7c0-1.1-.9-2-2-2H5C3.9 
+                                    5 3 5.9 3 7v10c0 1.1.9 2 2 
+                                    2h10c1.1 0 2-.9 2-2v-3.5l4 
+                                    4v-11l-4 4z"/>
+                                </svg>
+                                Join Meeting
                             </a>
                         </td>
                     </tr>
 
+                    
                     <tr class="schedule-item tth" id="ca-row">
                         <td class="col-day" data-label="Day">T-TH</td>
                         <td class="col-time" data-label="Time">7:00 PM – 8:30 PM</td>
                         <td class="col-course" data-label="Subject">ARCHITECTURE AND ORGANIZATION</td>
                         <td class="col-prof" data-label="Instructor">Prof. Carreon</td>
                         <td class="col-link" data-label="Link" data-class-code="ydffki3f">
-                            <a href="https://classroom.google.com/c/ODIzNzMwODY0OTc0" target="_blank" class="meet-link google-classroom" title="Class Code: ydffki3f">
-                                <svg class="icon svg-classroom" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M17,13.5h-4V17h-2v-3.5H7V10h4V7h2v3h4V13.5z"/></svg> Google Classroom
+                            <a href="https://classroom.google.com/c/ODIzNzMwODY0OTc0" target="_blank" class="meet-link google-classroom">
+                                
+                                <svg height="20" width="20" viewBox="0 0 24 24" fill="#3c4043">
+                                    <path d="M21 6h-2V4c0-1.1-.9-2-2-2H7c-1.1 
+                                    0-2 .9-2 2v2H3c-1.1 0-2 .9-2 
+                                    2v10c0 1.1.9 2 2 2h18c1.1 
+                                    0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-4 
+                                    0H7V4h10v2z"/>
+                                </svg>
+                                Google Classroom
                             </a>
                         </td>
                     </tr>
 
+                    
                     <tr class="schedule-item tth" id="cs-row">
                         <td class="col-day" data-label="Day">T-TH</td>
                         <td class="col-time" data-label="Time">8:30 PM – 10:00 PM</td>
                         <td class="col-course" data-label="Subject">COMPUTATIONAL SCIENCE</td>
                         <td class="col-prof" data-label="Instructor">Prof. Carreon</td>
                         <td class="col-link" data-label="Link" data-class-code="ij42qrvq">
-                            <a href="https://classroom.google.com/c/ODIwNTM1MTY3OTQ3" target="_blank" class="meet-link google-classroom" title="Class Code: ij42qrvq">
-                                <svg class="icon svg-classroom" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><rect fill="none" height="24" width="24"/><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M17,13.5h-4V17h-2v-3.5H7V10h4V7h2v3h4V13.5z"/></svg> Google Classroom
+                            <a href="https://classroom.google.com/c/ODIwNTM1MTY3OTQ3" target="_blank" class="meet-link google-classroom">
+                                <svg height="20" width="20" viewBox="0 0 24 24" fill="#3c4043">
+                                    <path d="M21 6h-2V4c0-1.1-.9-2-2-2H7c-1.1 
+                                    0-2 .9-2 2v2H3c-1.1 0-2 .9-2 
+                                    2v10c0 1.1.9 2 2 2h18c1.1 
+                                    0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-4 
+                                    0H7V4h10v2z"/>
+                                </svg>
+                                Google Classroom
                             </a>
                         </td>
                     </tr>
@@ -125,13 +194,13 @@
             <button id="close-modal-btn" class="close-button">&times;</button>
             <h2 class="modal-title">Joining a Google Classroom</h2>
             <div class="tutorial-steps">
-                <p>For subjects with a <strong>Google Classroom</strong> link, you can join using the Class Link or the Class Code.</p>
+                <p>For subjects with a <strong>Google Classroom</strong> link, you can join using the <strong>Class Link</strong> or <strong>Class Code</strong>.</p>
                 <ol>
-                    <li>Sign in to your <strong>Google Account</strong> (preferably your student account).</li>
+                    <li>Sign in to your <strong>Google Account</strong>.</li>
                     <li>Go to <a href="https://classroom.google.com/" target="_blank">classroom.google.com</a>.</li>
-                    <li>Click the <strong>plus sign (+)</strong> in the top right corner. </li>
+                    <li>Click the <strong>plus sign (+)</strong> in the top right corner.</li>
                     <li>Select <strong>"Join class"</strong>.</li>
-                    <li>Enter the <strong>Class Code</strong> for your subject:
+                    <li>Enter the <strong>Class Code</strong>:
                         <ul>
                             <li><strong>ARCHITECTURE AND ORGANIZATION:</strong> <code>ydffki3f</code></li>
                             <li><strong>COMPUTATIONAL SCIENCE:</strong> <code>ij42qrvq</code></li>
@@ -139,7 +208,7 @@
                     </li>
                     <li>Click <strong>"Join"</strong>.</li>
                 </ol>
-                <p>Alternatively, clicking the <strong>"Google Classroom"</strong> link in the table should take you directly to the class page if you are logged in.</p>
+                <p>Or simply click the <strong>Google Classroom</strong> link in the schedule.</p>
             </div>
         </div>
     </div>
@@ -147,4 +216,3 @@
     <script src="schd.js"></script>
 </body>
 </html>
-
